@@ -1,4 +1,5 @@
 package Week3.Day1;
+
 	// Given a list:
 	// List<Integer> nums = Arrays.asList(3, 10, 15, 8, 21, 14, 7);
 	// Task
@@ -17,7 +18,7 @@ package Week3.Day1;
 import java.util.*;
 import java.util.stream.Collectors;
 
-// Functional Interface
+// Functional Interface 
 @FunctionalInterface
 interface NumberRule {
     boolean apply(int n);

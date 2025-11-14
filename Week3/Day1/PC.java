@@ -5,7 +5,7 @@ class Buffer {
     int value;
     boolean available = false;
 
-// Producer puts value into buffer
+// Producer puts value into buffer 
     synchronized void put(int v) throws InterruptedException {
         while (available) wait();
         value = v;
