@@ -1,5 +1,6 @@
 import java.util.*;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 // 3. Find the First Non-Repeating Character.
 class FirstNonRepeating {
@@ -65,16 +66,20 @@ class MergeSorted {
 // Threads should be synced to print output one by one.
 class PrintTable {
     synchronized void print(int n) {
-        for(int i = 1; i <= 5; i++) {
-            System.out.println(n + " x " + i + " = " + (n * i));
-            try { wait(400); } catch(Exception e) {}
+        for(int i = 1; i <= 10; i++) {
+            System.out.println(Thread.currentThread().getName() + " " + n + " x " + i + " = " + (n * i));
+            try { 
+                wait(400); 
+            } catch(Exception e) {
+
+            }
             notify();
         }
     }
 }
 
-class ThreadSyncExample {
-    void runThreadExample() {
+class ThreadSync {
+    void runThread() {
         PrintTable obj = new PrintTable();
 
         Thread t1 = new Thread(() -> obj.print(2));
@@ -87,26 +92,30 @@ class ThreadSyncExample {
 
 
 // 7. Write above program using ExecutorService.
-class TablePrinter {
-    void printTable(int n) {
-        for(int i = 1; i <= 5; i++) {
-            System.out.println(n + " x " + i + " = " + (n * i));
-            try { Thread.sleep(300); } catch(Exception e) {}
-        }
+
+class PrinterTask implements Runnable {
+    int n;
+    PrinterTask(int n) { 
+        this.n = n; 
+    }
+
+    public void run() {
+        for (int i = 1; i <= 10; i++)
+            System.out.println(Thread.currentThread().getName() + ": " + n + " x " + i + " = " + (n * i));
     }
 }
 
-class ExecutorExample {
-    void runExecutor() {
-        TablePrinter t = new TablePrinter();
-        ExecutorService service = Executors.newFixedThreadPool(2);
-
-        service.execute(() -> t.printTable(2));
-        service.execute(() -> t.printTable(4));
-
-        service.shutdown();
+class ExecSer {
+    public static void main(String[] args) {
+        ExecutorService ex = Executors.newFixedThreadPool(2);
+        ex.submit(new PrinterTask(2));
+        ex.submit(new PrinterTask(4));
+        ex.submit(new PrinterTask(6));
+        ex.submit(new PrinterTask(8));
+        ex.shutdown();
     }
 }
+
 
 
 //Main Class
@@ -123,9 +132,9 @@ public class Main {
         // new MergeSorted().solve();
 
         // Q6:
-        // new ThreadSyncExample().runThreadExample();
+        // new ThreadSync().runThread();
 
         // Q7:
-        // new ExecutorExample().runExecutor();
+        new ExecSer().main(new String[]{});
     }
 }

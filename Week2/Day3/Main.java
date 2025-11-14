@@ -89,9 +89,15 @@ class ReverseDigit {
 
 // 5. Create a Calculator class with methods add, subtract, multiply, and divide.
 class Calculator {
-    int add(int a,int b){ return a+b; }
-    int sub(int a,int b){ return a-b; }
-    int mul(int a,int b){ return a*b; }
+    int add(int a,int b){ 
+        return a+b; 
+    }
+    int sub(int a,int b){ 
+        return a-b; 
+    }
+    int mul(int a,int b){ 
+        return a*b; 
+    }
     double div(int a,int b){
         if(b==0) throw new ArithmeticException("Cannot divide by zero");
         return (double)a/b;
@@ -157,7 +163,7 @@ class Student {
     }
 }
 
-class StudentDemo {
+class StudentData {
     void solve() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter student name: ");
@@ -205,7 +211,7 @@ class SimpleAccount {
     }
 }
 
-class SimpleAccountDemo {
+class SimpleAccountData {
     void solve() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter account number: ");
@@ -235,12 +241,16 @@ class SimpleAccountDemo {
 // 8. Create a class where every time an object is created, a static counter increases. Print how many objects have been created.
 class ObjectCounter {
     private static int count = 0;
-    public ObjectCounter() { count++; }
-    public static int getCount(){ return count; }
+    public ObjectCounter() { 
+        count++; 
+    }
+    public static int getCount() { 
+        return count; 
+    }
 }
 
-class ObjectCounterDemo {
-    void solve(){
+class ObjectCounterImp {
+    void solve() {
         new ObjectCounter();
         new ObjectCounter();
         new ObjectCounter();
@@ -254,12 +264,18 @@ class ObjectCounterDemo {
 
 // 9. Create a MathUtils class with static methods for max, min, and average. Call these without creating an object.
 class MathUtils {
-    public static int max(int a, int b){ return (a > b) ? a : b; }
-    public static int min(int a, int b){ return (a < b) ? a : b; }
-    public static double avg(int a, int b){ return (a + b) / 2.0; }
+    public static int max(int a, int b) { 
+        return (a > b) ? a : b; 
+    }
+    public static int min(int a, int b) { 
+        return (a < b) ? a : b; 
+    }
+    public static double avg(int a, int b) { 
+        return (a + b) / 2.0; 
+    }
 }
-class MathUtilsDemo {
-    void solve(){
+class MathUtilsImp {
+    void solve() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter two numbers: ");
         int a = sc.nextInt(), b = sc.nextInt();
@@ -279,15 +295,19 @@ class MathUtilsDemo {
 class Book {
     private String title, author;
     private double price;
-    public Book(String t, String a, double p){ title=t; author=a; price=p; }
-    public void display(){
+    public Book(String t, String a, double p) { 
+        title=t; 
+        author=a; 
+        price=p; 
+    }
+    public void display() {
         System.out.println("Title: " + title);
         System.out.println("Author: " + author);
         System.out.println("Price: " + price);
     }
 }
 
-class BookDemo {
+class BookStore {
     void solve(){
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter title: ");
@@ -332,7 +352,7 @@ class Car {
         }
 }
 
-class CarDemo {
+class CarRun {
     void solve(){
         Car c1 = new Car("Toyota");
         Car c2 = new Car("Honda", 450000);
@@ -350,8 +370,8 @@ class CarDemo {
 // Accept two integers from user and divide them.
 // Handle division by zero using try-catch.
 // Print “Division completed” in a finally block.
-class DivisionDemo {
-    void solve(){
+class DivisionAndException {
+    void solve() {
         Scanner sc = new Scanner(System.in);
         try{
             System.out.print("Enter two numbers: ");
@@ -386,10 +406,10 @@ class DivisionDemo {
 // 13. Nested try-catch
 // Write a program where an inner try block may throw ArithmeticException, and an outer try block may throw ArrayIndexOutOfBoundsException.
 // Handle both appropriately.
-class NestedTryDemo {
-    void solve(){
-        try{
-            try{
+class NestedTryBlock {
+    void solve() {
+        try {
+            try {
                 int x = 10/0;
             } catch(ArithmeticException e){
                 System.out.println("Inner: Division by zero.");
@@ -413,7 +433,7 @@ class NestedTryDemo {
 // m1() calls m2(), and m2() calls m3().
 // m3() divides by zero.
 // Observe how the exception propagates up the chain and catch it in m1().
-class PropagationDemo {
+class PropagationClass {
     static void m3() { 
         int x = 10/0; 
         }
@@ -438,7 +458,7 @@ class PropagationDemo {
 // Re-throw Exception
 // Catch an exception inside a try-catch block, print a message,
 // then re-throw it to be handled by another catch block at a higher level.
-class ReThrowDemo {
+class ReThrowError {
     static void methodA() throws Exception {
         try {
             methodB();
@@ -475,17 +495,18 @@ class InvalidEmailException extends Exception {
     }
 }
 
-class EmailDemo {
+class EmailFetcher {
     static void validate(String email) throws InvalidEmailException {
         if(!email.contains("@")) throw new InvalidEmailException("Invalid Email Format");
     }
-    void solve(){
+    void solve() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter email: ");
         String e = sc.nextLine();
         try{ 
-            validate(e); System.out.println("Valid Email"); 
-            } catch(Exception ex){ 
+            validate(e); 
+            System.out.println("Valid Email"); 
+            } catch(Exception ex) { 
                 System.out.println(ex.getMessage()); 
             }
     }
@@ -514,7 +535,7 @@ class Customer {
         return "Customer ID: " + id + ", Name: " + name + ", Email: " + email;
     }
 }
-class CustomerDemo {
+class CustomerInfo {
     void solve(){
         List<Customer> customers = new ArrayList<>();
         customers.add(new Customer(1, "Alice", "alice@example.com"));
@@ -571,7 +592,7 @@ class BankAccount {
     }
 }
 
-class SimpleBankDemo {
+class BankInfo {
     void solve(){
         BankAccount account1 = new BankAccount();
         BankAccount account2 = new BankAccount();
@@ -641,7 +662,7 @@ class PartTimeEmployee extends Employee {
         return hourlyRate * hoursWorked;
     }
 }
-class EmployeeDemo {
+class EmployeeInfo {
     void solve(){
         List<Employee> employees = new ArrayList<>();
         employees.add(new FullTimeEmployee("Alice", 1, 3000.0));
@@ -686,7 +707,7 @@ class Product {
         return "Product ID: " + id + ", Name: " + name + ", Price: " + price;
     }
 }
-class ProductDemo {
+class ProductInfo {
     void solve(){
         List<Product> products = new ArrayList<>();
         try {
@@ -745,20 +766,20 @@ public class Main {
                 case 3: new Factorial().solve(); break;
                 case 4: new ReverseDigit().solve(); break;
                 case 5: new CalcRunner().solve(); break;
-                case 6: new StudentDemo().solve(); break;
-                case 7: new SimpleAccountDemo().solve(); break;
-                case 8: new ObjectCounterDemo().solve(); break;
-                case 9: new MathUtilsDemo().solve(); break;
-                case 10: new BookDemo().solve(); break;
-                case 11: new CarDemo().solve(); break;
-                case 12: new DivisionDemo().solve(); break;
-                case 13: new NestedTryDemo().solve(); break;
-                case 14: new PropagationDemo().solve(); break;
-                case 15: new EmailDemo().solve(); break;
-                case 16: new CustomerDemo().solve(); break;
-                case 17: new SimpleBankDemo().solve(); break;
-                case 18: new EmployeeDemo().solve(); break;
-                case 19: new ProductDemo().solve(); break;
+                case 6: new StudentData().solve(); break;
+                case 7: new SimpleAccountData().solve(); break;
+                case 8: new ObjectCounterImp().solve(); break;
+                case 9: new MathUtilsImp().solve(); break;
+                case 10: new BookStore().solve(); break;
+                case 11: new CarRun().solve(); break;
+                case 12: new DivisionAndException().solve(); break;
+                case 13: new NestedTryBlock().solve(); break;
+                case 14: new PropagationClass().solve(); break;
+                case 15: new EmailFetcher().solve(); break;
+                case 16: new CustomerInfo().solve(); break;
+                case 17: new BankInfo().solve(); break;
+                case 18: new EmployeeInfo().solve(); break;
+                case 19: new ProductInfo().solve(); break;
                 case 0: System.exit(0);
                 default: System.out.println("Invalid choice!");
             }
