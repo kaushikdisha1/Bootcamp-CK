@@ -1,3 +1,4 @@
+
 1. Find and terminate the top memory-consuming process on your system.
    
 =>
@@ -209,5 +210,4 @@
       sudo apt install dbeaver-ce -y
 
       dbeaver &
-
 
