@@ -14,7 +14,7 @@ class Buffer {
         notify();
     }
 
-// Consumer gets value from buffer
+// Consumer gets value from buffer 
     synchronized void get() throws InterruptedException {
         while (!available) wait();
         System.out.println("Consumed: " + value);

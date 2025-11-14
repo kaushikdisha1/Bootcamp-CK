@@ -18,7 +18,7 @@ package Week3.Day1;
 import java.util.*;
 import java.util.stream.Collectors;
 
-// Functional Interface 
+// Functional Interface
 @FunctionalInterface
 interface NumberRule {
     boolean apply(int n);
