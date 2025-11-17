@@ -1,0 +1,81 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f5f7fb;
+  color: #333;
+}
+
+/* Center container */
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Card style */
+.card {
+  background: white;
+  padding: 30px;
+  width: 350px;
+  text-align: center;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+button {
+  background: #4f46e5;
+  border: none;
+  padding: 12px 18px;
+  color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+
+button:hover {
+  background: #3730a3;
+}
+
+/* Navigation links */
+nav {
+  background: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #4f46e5;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Counter Page */
+.counter-value {
+  font-size: 40px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+/* Digital Clock */
+.clock {
+  font-size: 35px;
+  font-weight: bold;
+  padding: 20px;
+}
